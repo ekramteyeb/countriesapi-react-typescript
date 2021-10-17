@@ -1,33 +1,39 @@
 import { useState } from "react";
+import { Container } from "react-bootstrap";
 
-import CountriesList from "./components/CountriesList";
-import SearchComponent from "./components/SearchComponent";
+//import CountriesList from "./components/CountriesList";
+import SearchComponent from "./components/Search/index";
+import Table from "./components/Table/index";
 
-import useFetchCountries from "./components/useFetchCountries";
+import useFetchCountries from "./hooks/useFetch";
+import useDebounce from "./hooks/useDebounce";
 import "./App.css";
 
 function App() {
   const [search, setSearch] = useState("");
 
-  const [data] = useFetchCountries();
+  const url = "https://restcountries.com/v2/all";
+  const [data] = useFetchCountries(url);
+  const debounceValue = useDebounce(search, 1000);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
   return (
-    <div className="container">
+    <Container fluid hover>
       <header className="header">
-        <h1>Countries</h1>
+        <h1>World Countries</h1>
       </header>
       <main className="main">
         <SearchComponent
           handleChange={handleChange}
           placeholder="search by country name,region, or language"
         />
-        <CountriesList
-          countries={
-            search === ""
+
+        <Table
+          data={
+            debounceValue === ""
               ? data
               : data.filter((country) =>
                   country.name
@@ -39,12 +45,12 @@ function App() {
                         .toString()
                         .toLowerCase()
                     )
-                    .includes(search.toLowerCase())
+                    .includes(debounceValue.toLowerCase())
                 )
           }
         />
       </main>
-    </div>
+    </Container>
   );
 }
 
