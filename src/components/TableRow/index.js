@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 import TableCell from "../TableCell/index";
 import Flag from "../Flag/index";
 
-function TableRow ({ country : {flags:{png}, name ,population, languages,region } }) {
-  
+function TableRow({
+  country: {
+    flags: { png },
+    name,
+    population,
+    languages,
+    region,
+  },
+}) {
   return (
     <tr>
       <TableCell input={<Flag url={png} />} />
@@ -17,6 +24,6 @@ function TableRow ({ country : {flags:{png}, name ,population, languages,region 
       <TableCell input={region} />
     </tr>
   );
-};
+}
 
-export default TableRow
+export default TableRow;
