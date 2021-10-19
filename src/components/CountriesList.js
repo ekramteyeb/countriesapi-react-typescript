@@ -5,7 +5,7 @@ import Country from "./Country";
 const CountriesList = ({ countries }) => {
   return (
     <div>
-      <Table striped >
+      <Table striped>
         <tbody>
           <tr>
             <th>Flag</th>

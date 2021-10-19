@@ -4,14 +4,12 @@ import { Container } from "react-bootstrap";
 //import CountriesList from "./components/CountriesList";
 import SearchComponent from "./components/Search/index";
 import Table from "./components/Table/index";
-
 import useFetchCountries from "./hooks/useFetch";
 import useDebounce from "./hooks/useDebounce";
 import "./App.css";
 
 function App() {
   const [search, setSearch] = useState("");
-
   const url = "https://restcountries.com/v2/all";
   const [data] = useFetchCountries(url);
   const debounceValue = useDebounce(search, 1000);
