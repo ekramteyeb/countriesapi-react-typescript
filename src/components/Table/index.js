@@ -18,6 +18,7 @@ function TableData({ data }) {
 
   const handleSort = (e) => {
     let colomn = e.target.textContent.toLowerCase();
+    console.log(filter)
     setFilter(colomn);
     setCondtion({ ...condition, flag: !condition.flag });
   };
