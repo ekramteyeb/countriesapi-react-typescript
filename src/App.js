@@ -9,7 +9,6 @@ import useDebounce from "./hooks/useDebounce";
 import "./App.css";
 
 function App() {
-
   const [search, setSearch] = useState("");
   const url = "https://restcountries.com/v2/all";
   const [data] = useFetchCountries(url);
