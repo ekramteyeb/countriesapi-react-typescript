@@ -21,7 +21,7 @@ function TableData({ countries }: TableProps) {
   const [condition, setCondtion] = useState({ ...sortObject });
   //const [filter, setFilter] = useState("");
 
-  const handleSort = (event: { currentTarget: { tagName: string } }) => {
+  const handleSort = (event: React.BaseSyntheticEvent) => {
     //let colomn = event.currentTarget.tagName;
     //setFilter(colomn);
     setCondtion({ ...condition, flag: !condition.flag });
@@ -32,7 +32,7 @@ function TableData({ countries }: TableProps) {
         arrow={condition.flag ? <ArrowUp size={15} /> : <ArrowDown size={15} />}
         handleSort={handleSort}
       />
-      
+
       <tbody>
         {countries.map((country: Country) => (
           <TableRow key={country.name} country={country} />

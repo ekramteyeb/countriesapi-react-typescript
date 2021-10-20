@@ -4,18 +4,11 @@ import { Form } from "react-bootstrap";
 import "./search.scss";
 
 type PropTypes = {
-  placeholder: string, 
+  placeholder: string;
   // possible to use (//React.BaseSyntheticEvent;)
-  handleChange: (input : React.ChangeEvent<HTMLInputElement>) => void, 
-  
-}
-
-
-const SearchComponent = ({ handleChange, placeholder } :  PropTypes) => {
-  /* const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-   onChange(e.target.value);
-  }; */
-
+  handleChange: (input: React.ChangeEvent<HTMLInputElement>) => void;
+};
+const SearchComponent = ({ handleChange, placeholder }: PropTypes) => {
   return (
     <div className="search">
       <Form.Control
