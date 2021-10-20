@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/components/CountriesList.tsx
+/src/components/Country.tsx
