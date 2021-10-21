@@ -4,7 +4,7 @@ import { Country } from "../types";
 
 const useFetch = (): [Error | unknown, Country[]] => {
   const [data, setData] = useState<Country[]>([]);
-  const [error, setError] = useState<unknown>(null);
+  const [error, setError] = useState<unknown>('');
 
   const url = "https://restcountries.com/v2/all";
 
@@ -13,7 +13,7 @@ const useFetch = (): [Error | unknown, Country[]] => {
       const response = await fetch(url);
       const data = await response.json();
       setData(data);
-    } catch (error) {
+    }catch (error) {
       setError(error);
     }
   };

@@ -1,7 +1,6 @@
-import React, { useCallback, useState} from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useCallback, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-
 
 //import CountriesList from "./components/CountriesList";
 import SearchComponent from "./components/Search";
@@ -9,20 +8,19 @@ import Table from "./components/Table/index";
 import useFetchCountries from "./hooks/useFetch";
 import useDebounce from "./hooks/useDebounce";
 import "./App.css";
-import {Country} from "./types";
+import { Country } from "./types";
 
 function App() {
-
   const [search, setSearch] = useState<string>("");
   const [error, data] = useFetchCountries();
   const debounceValue = useDebounce(search, 1000);
 
-  const handleChange = useCallback((e) => {
-    setSearch(e.target.value)
+  const handleChange = useCallback((event: React.BaseSyntheticEvent) => {
+    setSearch(event.target.value);
   }, []);
 
   return (
-    <Container fluid >
+    <Container fluid>
       <header className="header">
         <h1>World Countries -Type script</h1>
       </header>
@@ -31,12 +29,11 @@ function App() {
           handleChange={handleChange}
           placeholder="search by country name,region, or language"
         />
-
         <Table
           countries={
             debounceValue === ""
               ? data
-              : data.filter((country : Country) =>
+              : data.filter((country: Country) =>
                   country.name
                     .toLowerCase()
                     .concat(country.region.toLowerCase())
