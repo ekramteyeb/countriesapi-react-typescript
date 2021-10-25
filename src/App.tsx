@@ -33,7 +33,7 @@ function App() {
   return (
     <Container fluid>
       <header className="header">
-        <h1>World Countries -Type script</h1>
+        <h1>World Countries -Redux -Type script -feature</h1>
       </header>
       <main className="main">
         <SearchComponent
