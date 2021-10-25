@@ -1,8 +1,8 @@
 type Languages = {
   name: string;
 };
-
-export type Country = {
+//let foo:{ [index:string] : {message: string} } = {};
+export type Country  = {
   flag: string;
   name: string;
   languages: Languages[];

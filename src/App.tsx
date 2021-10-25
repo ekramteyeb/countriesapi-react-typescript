@@ -5,19 +5,27 @@ import { Container } from "react-bootstrap";
 //import CountriesList from "./components/CountriesList";
 import SearchComponent from "./components/Search";
 import Table from "./components/Table/index";
-import useFetchCountries from "./hooks/useFetch";
+import useFetchCountries from "./hooks/useFetchCountries";
 import useDebounce from "./hooks/useDebounce";
 import "./App.css";
-import { Country } from "./types";
+//import { Country } from "./types";
 
 function App() {
   const [search, setSearch] = useState<string>("");
-  const [error, data] = useFetchCountries();
+  const [sortColumn, setSortColumn] = useState<string>("name");
+  const [sortOrder, setSortOrder] = useState(true);
   const debounceValue = useDebounce(search, 1000);
+
+  const [error, data] = useFetchCountries(debounceValue, sortOrder, sortColumn);
 
   const handleChange = useCallback((event: React.BaseSyntheticEvent) => {
     setSearch(event.target.value);
   }, []);
+
+  const handleSort = (event: string) => {
+    setSortColumn(event);
+    setSortOrder(sortOrder ? false : true);
+  };
 
   return (
     <Container fluid>
@@ -29,24 +37,16 @@ function App() {
           handleChange={handleChange}
           placeholder="search by country name,region, or language"
         />
-        <Table
-          countries={
-            debounceValue === ""
-              ? data
-              : data.filter((country: Country) =>
-                  country.name
-                    .toLowerCase()
-                    .concat(country.region.toLowerCase())
-                    .concat(
-                      country.languages
-                        .map((lang) => lang.name)
-                        .toString()
-                        .toLowerCase()
-                    )
-                    .includes(debounceValue.toLowerCase())
-                )
-          }
-        />
+        {error !== '' ? (
+          "there is error while fetchig data" 
+        ) : (
+          <Table
+            sortColumn={sortColumn}
+            sortOrder={sortOrder}
+            handleSort={handleSort}
+            countries={data}
+          />
+        )}
       </main>
     </Container>
   );

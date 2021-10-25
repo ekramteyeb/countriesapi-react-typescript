@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
-import { ArrowUp, ArrowDown } from "react-bootstrap-icons";
 
 import TableRow from "../TableRow/index";
 import TableHead from "../TableHead/index";
@@ -8,28 +7,23 @@ import { Country } from "../../types";
 
 type TableProps = {
   countries: Country[];
+  sortOrder: boolean;
+  sortColumn: string;
+  handleSort: (elemnt : any) => void;
 };
-//Colomn Sorting is not implemented yet
-function TableData({ countries }: TableProps) {
-  const sortObject = {
-    flag: true,
-    name: true,
-    population: true,
-    languages: true,
-    region: true,
-  };
-  const [condition, setCondtion] = useState({ ...sortObject });
-  //const [filter, setFilter] = useState("");
-
-  const handleSort = (event: React.BaseSyntheticEvent) => {
-    //let colomn = event.currentTarget.tagName;
-    //setFilter(colomn);
-    setCondtion({ ...condition, flag: !condition.flag });
-  };
+//Colomn Sorting is implemented now
+function TableData({
+  countries,
+  sortOrder,
+  sortColumn,
+  handleSort,
+}: TableProps) {
+  
   return (
     <Table striped hover>
       <TableHead
-        arrow={condition.flag ? <ArrowUp size={15} /> : <ArrowDown size={15} />}
+        sortOrder={sortOrder}
+        sortColumn={sortColumn}
         handleSort={handleSort}
       />
 
