@@ -22,10 +22,13 @@ function App() {
     setSearch(event.target.value);
   }, []);
 
-  const handleSort = (event: string) => {
-    setSortColumn(event);
-    setSortOrder(sortOrder ? false : true);
-  };
+  const handleSort = useCallback(
+    (event: string) => {
+      setSortColumn(event);
+      setSortOrder(sortOrder ? false : true);
+    },
+    [sortOrder]
+  );
 
   return (
     <Container fluid>
@@ -37,8 +40,8 @@ function App() {
           handleChange={handleChange}
           placeholder="search by country name,region, or language"
         />
-        {error !== '' ? (
-          "there is error while fetchig data" 
+        {error !== "" ? (
+          "there is error while fetchig data"
         ) : (
           <Table
             sortColumn={sortColumn}

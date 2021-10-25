@@ -9,6 +9,7 @@ type PropTypes = {
   handleChange: (input: React.ChangeEvent<HTMLInputElement>) => void;
 };
 const SearchComponent = ({ handleChange, placeholder }: PropTypes) => {
+  //console.log("search component rendering");
   return (
     <div className="search">
       <Form.Control
@@ -20,5 +21,4 @@ const SearchComponent = ({ handleChange, placeholder }: PropTypes) => {
     </div>
   );
 };
-
-export default SearchComponent;
+export default React.memo(SearchComponent);

@@ -8,13 +8,9 @@ type TableHeadProps = {
   sortOrder: boolean;
   sortColumn: string;
 };
-export default function TableHead({
-  handleSort,
-  sortOrder,
-  sortColumn,
-}: TableHeadProps) {
+function TableHead({ handleSort, sortOrder, sortColumn }: TableHeadProps) {
   const tableHeaders = ["Flag", "Name", "Population", "Languages", "Region"];
-
+  //console.log('table head is rendering')
   return (
     <thead>
       <tr className="table-row">
@@ -31,7 +27,7 @@ export default function TableHead({
     </thead>
   );
 }
-
+export default React.memo(TableHead);
 /* <th key={head} onClick={handleSort}>
   {head}
 </th>;

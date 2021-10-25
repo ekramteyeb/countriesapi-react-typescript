@@ -18,7 +18,6 @@ function TableData({
   sortColumn,
   handleSort,
 }: TableProps) {
-  
   return (
     <Table striped hover>
       <TableHead
