@@ -9,7 +9,7 @@ type TableHeadProps = {
   sortColumn: string;
 };
 function TableHead({ handleSort, sortOrder, sortColumn }: TableHeadProps) {
-  const tableHeaders = ["Flag", "Name", "Population", "Languages", "Region"];
+  const tableHeaders = ["Flag", "Name", "Population", "Languages", "Region", ""];
   //console.log('table head is rendering')
   return (
     <thead>

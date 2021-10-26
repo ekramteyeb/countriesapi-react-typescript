@@ -7,6 +7,7 @@ type Languages = {
 }
 // A country
 export type Country = {
+  id: number;
   flag: string;
   name: string;
   languages: Languages[];

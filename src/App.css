@@ -10,16 +10,21 @@
 } */
 
 .header {
-  background-color: #b3d6e4;
+  /* background-color: #97d9f4; */
+  background-color: white;
   min-height: 5vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: black;
 }
-
+.header__div{
+  text-align: center;
+  display:flex;
+  align-items: flex-end;
+  padding:0px 12px 0px 12px;
+  
+}
 .App-link {
   color: #61dafb;
 }
