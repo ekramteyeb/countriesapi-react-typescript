@@ -2,10 +2,14 @@ import React from "react";
 
 import Flag from "../Flag/";
 import { Country } from "../../types";
-import "./index.scss"
+import ButtonComponent from "../Button";
+import './index.scss'
+import { useTheme } from "../../context/Context";
 
 type TableRowProps ={
-  country: Country
+  country: Country, 
+  handleClick :  (input: React.BaseSyntheticEvent) => void, 
+ 
 }
 function TableRow({
   country: {
@@ -14,8 +18,10 @@ function TableRow({
     population,
     languages,
     region,
-  },
+  },handleClick
 }: TableRowProps) {
+  const { theme } = useTheme()
+
   return (
     <tr className="table-row">
       <td><Flag url={flag} /></td>
@@ -27,6 +33,8 @@ function TableRow({
         ))}
       </td>
       <td>{region}</td>
+      <td ><ButtonComponent handleClick={handleClick}  text='add ' color={theme}/></td>
+
     </tr>
   );
 }

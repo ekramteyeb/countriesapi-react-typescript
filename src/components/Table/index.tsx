@@ -1,9 +1,11 @@
 import React from "react";
+import { useDispatch} from 'react-redux'
 import { Table } from "react-bootstrap";
 
 import TableRow from "../TableRow/index";
 import TableHead from "../TableHead/index";
 import { Country } from "../../types";
+import { addCountry } from "../../redux/actions";
 
 type TableProps = {
   countries: Country[];
@@ -17,7 +19,9 @@ function TableData({
   sortOrder,
   sortColumn,
   handleSort,
+
 }: TableProps) {
+  const dispatch = useDispatch()
   return (
     <Table striped hover>
       <TableHead
@@ -28,7 +32,8 @@ function TableData({
 
       <tbody>
         {countries.map((country: Country) => (
-          <TableRow key={country.name} country={country} />
+          <TableRow key={country.name} country={country} 
+            handleClick={() => dispatch(addCountry(country))}  />
         ))}
       </tbody>
     </Table>

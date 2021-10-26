@@ -8,25 +8,25 @@ type PropTyes = {
     handleSort : (name : string | any) => void
 }
 const TableCell = ({
-    name,
-    sortOrder,
-    sortColumn,
-    handleSort
+  name,
+  sortOrder,
+  sortColumn,
+  handleSort
 } : PropTyes) => {
-    return (
-        <th onClick={() => handleSort(name.toLowerCase())}>
-            {name}
-             {sortColumn ? sortColumn && sortOrder ? (
-                <span >
-                    <ArrowUp />
-                </span>
-            ): (
-                <span >
-                    <ArrowDown />
-                </span>
-            ) : ''}
-        </th>
-    )
+  return (
+    <th onClick={() => handleSort(name.toLowerCase())}>
+      {name}
+      {sortColumn ? sortColumn && sortOrder ? (
+        <span >
+          <ArrowUp />
+        </span>
+      ): (
+        <span >
+          <ArrowDown />
+        </span>
+      ) : ''}
+    </th>
+  )
 }
 
 export default TableCell

@@ -50,8 +50,8 @@ const useFetch = (
           typeof arr[0][sortBy] === "number"
             ? arr.sort((a: any, b: any) => a[sortBy] - b[sortBy])
             : Array.isArray(arr[0][sortBy])
-            ? arr.sort((a: any, b: any) => a[sortBy].length - b[sortBy].length)
-            : arr.sort((a: any, b: any) => {
+              ? arr.sort((a: any, b: any) => a[sortBy].length - b[sortBy].length)
+              : arr.sort((a: any, b: any) => {
                 if (a[sortBy].toLowerCase() > b[sortBy].toLowerCase()) return 1;
                 if (a[sortBy].toLowerCase() < b[sortBy].toLowerCase())
                   return -1;
@@ -62,12 +62,12 @@ const useFetch = (
       }
     };
 
-     sortArray(
+    sortArray(
       filterdCountries,
       sortColumn,
       sortOrder
     );
-   // console.log(filterdSortedCountries, "filterd and sorted countries");
+    // console.log(filterdSortedCountries, "filterd and sorted countries");
 
     setFilterdCountries(filterdCountries);
   }, [data, search, sortColumn, sortOrder]);
