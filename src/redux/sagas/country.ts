@@ -6,4 +6,5 @@ function* doSomethingWhenAddingCountry(action: AddCountryAction) {
   yield console.log(action)
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [takeLatest(ADD_COUNTRY, doSomethingWhenAddingCountry)]
