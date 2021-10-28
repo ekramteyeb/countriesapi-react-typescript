@@ -26,11 +26,11 @@ export function removeCountry(country: Country): CountryActions {
   }
 }
 
-export function fetchAllCountries(countries:Country[]): CountryActions {
+export function fetchAllCountries(countries: Country[]): CountryActions {
   return {
     type: ADD_ALL_COUNTRIES,
     payload: {
-      countries
+      countries,
     },
   }
 }

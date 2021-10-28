@@ -25,3 +25,5 @@ yarn-error.log*
 /src/components/CountriesList.tsx
 /src/components/Country.tsx
 /src/hooks/useFetchCountries_wo_redux.tsx
+/src/pages/Home/Home1.tsx
+/src/pages/Countries/Countries.tsx

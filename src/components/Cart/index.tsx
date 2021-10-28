@@ -9,7 +9,9 @@ type Props = {
 export default function Cart({ items, handleClick }: Props) {
   return (
     <div className="cart__wrapper">
-      <Link to="/countries"><BiCart onClick={handleClick} size="35" /></Link>
+      <Link to="/countries">
+        <BiCart onClick={handleClick} size="35" />
+      </Link>
       <span> {items} </span>
     </div>
   )

@@ -9,8 +9,8 @@ import rootSaga from './sagas'
 const initState: AppState = {
   country: {
     inCart: [],
-    allCountries:[],
-  }
+    allCountries: [],
+  },
 }
 export default function makeStore(initialState = initState) {
   const sagaMiddleware = createSagaMiddleware()

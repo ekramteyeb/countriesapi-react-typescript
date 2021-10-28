@@ -9,7 +9,7 @@ import {
 export default function country(
   state: CountryState = {
     inCart: [],
-    allCountries: []
+    allCountries: [],
   },
   action: CountryActions
 ): CountryState {
@@ -22,7 +22,6 @@ export default function country(
     // Always return new state (e.g, new object) if changed
     return { ...state, inCart: [...state.inCart, country] }
   }
-
   case REMOVE_COUNTRY: {
     const { country } = action.payload
     const index = state.inCart.findIndex((p) => p.name === country.name)
@@ -32,9 +31,9 @@ export default function country(
     }
     return state
   }
-  case ADD_ALL_COUNTRIES : {
+  case ADD_ALL_COUNTRIES: {
     const { countries } = action.payload
-    return {...state, allCountries: countries}
+    return { ...state, allCountries: countries }
   }
 
   default:

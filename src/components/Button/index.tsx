@@ -18,7 +18,6 @@ export default function ButtonComponent({
     backgroundColor: color,
     width: '60%',
   }
-
   return (
     <>
       <Button onClick={handleClick} style={style} disabled={disabled}>

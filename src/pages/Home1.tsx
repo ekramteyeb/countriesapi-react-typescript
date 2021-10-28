@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { Country, AppState } from '../types'
 import { addCountry, removeCountry } from '../redux/actions'
 
-
 export default function Home() {
   const dispatch = useDispatch()
   const countries = useSelector((state: AppState) => state.country.inCart)
@@ -13,13 +12,13 @@ export default function Home() {
   const handleAddCountry = () => {
     const country: Country = {
       //id:((+new Date()).toString()),
-      id:Math.random() * 139303,
-      flag:'https://daki.live',
-      name:'afganistan',
-      languages:[{name:'amharic'}],
+      id: Math.random() * 139303,
+      flag: 'https://daki.live',
+      name: 'afganistan',
+      languages: [{ name: 'amharic' }],
       population: 200000,
-      region:'Africa',
-      nativeName:'habesha'
+      region: 'Africa',
+      nativeName: 'habesha',
 
       /* id: (+new Date()).toString(),
       name: names[Math.floor(Math.random() * names.length)],
@@ -39,10 +38,9 @@ export default function Home() {
       <ul>
         {countries.map((p) => (
           <li key={p.id}>
-            <Link to={`/countries/${p.id}`}>{`${p.name} - $${p.population}`}</Link>
-
-            {'  '}
-
+            <Link
+              to={`/countries/${p.id}`}
+            >{`${p.name} - $${p.population}`}</Link>
             <button onClick={() => dispatch(removeCountry(p))}>Remove</button>
           </li>
         ))}
