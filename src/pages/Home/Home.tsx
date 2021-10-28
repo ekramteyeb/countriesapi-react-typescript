@@ -2,17 +2,18 @@ import React, { useCallback, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Container } from 'react-bootstrap'
 
-import SearchComponent from '../components/Search'
-import Cart from '../components/Cart'
-import Navigation from '../components/Navigation'
-import Table from '../components/Table'
-import useDebounce from '../hooks/useDebounce'
-import useFetchCountries from '../hooks/useFetchCountries'
-import { useTheme } from '../context/Context'
+import SearchComponent from '../../components/Search'
+import Cart from '../../components/Cart'
+import Navigation from '../../components/Navigation'
+import Table from '../../components/Table'
+import useDebounce from '../../hooks/useDebounce'
+import useFetchCountries from '../../hooks/useFetchCountries'
+import { useTheme } from '../../context/Context'
 
 
 import './styleHome.scss'
-import { AppState } from '../types'
+import { AppState } from '../../types'
+import { Link } from 'react-router-dom'
 //import { addCountry } from '../redux/actions'
 
 //import { Link } from 'react-router-dom'
@@ -22,18 +23,20 @@ import { AppState } from '../types'
 
 export default function Home() {
   //const dispatch = useDispatch()
-  const countries = useSelector((state: AppState) => state.country.inCart)
+  const countriesInCart = useSelector((state: AppState) => state.country.inCart)
+  //const allcountries = useSelector((state: AppState) => state.country.allCountries)
+  
   const [search, setSearch] = useState<string>('')
   const [sortColumn, setSortColumn] = useState<string>('name')
   const [sortOrder, setSortOrder] = useState(true)
   const debounceValue = useDebounce(search, 1000)
   
+  const [error, data] = useFetchCountries(debounceValue, sortOrder, sortColumn)
+
   //context 
   const { theme } = useTheme()
   
-  console.log(countries.length, 'countries')
-
-  const [error, data] = useFetchCountries(debounceValue, sortOrder, sortColumn)
+  localStorage.setItem('itemsIncart',JSON.stringify(countriesInCart))
 
   const handleChange = useCallback((event: React.BaseSyntheticEvent) => {
     setSearch(event.target.value)
@@ -55,13 +58,14 @@ export default function Home() {
       <header className="header" style={backgroundStyle}>
         <Navigation />
         <div className="header__div">
-          <p>Countries</p>
+          <p>{data.length}   Countries</p>
+ 
         </div>
         <SearchComponent
           handleChange={handleChange}
           placeholder="search by country name,region, or language"
         />
-        <Cart items={countries.length} handleClick={() => alert(`${countries.length} items in cart`)} />
+        <Cart items={countriesInCart.length} handleClick={() => <Link to="/countries/"></Link>} />
       </header>
       <main className="main">
         {error !== '' ? (

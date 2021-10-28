@@ -1,10 +1,10 @@
 import React from "react";
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { Table } from "react-bootstrap";
 
 import TableRow from "../TableRow/index";
 import TableHead from "../TableHead/index";
-import { Country } from "../../types";
+import { AppState, Country } from "../../types";
 import { addCountry } from "../../redux/actions";
 
 type TableProps = {
@@ -22,6 +22,8 @@ function TableData({
 
 }: TableProps) {
   const dispatch = useDispatch()
+  const inCart = useSelector((state: AppState) => state.country.inCart)
+
   return (
     <Table striped hover>
       <TableHead
@@ -33,7 +35,8 @@ function TableData({
       <tbody>
         {countries.map((country: Country) => (
           <TableRow key={country.name} country={country} 
-            handleClick={() => dispatch(addCountry(country))}  />
+            handleClick={() => dispatch(addCountry(country))} 
+            disabled={(inCart.find(p => p.name === country.name) ? true :false)} />
         ))}
       </tbody>
     </Table>

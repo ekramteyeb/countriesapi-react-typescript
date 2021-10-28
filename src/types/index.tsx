@@ -1,42 +1,8 @@
-// Action types
-export const ADD_COUNTRY =  'ADD_COUNTRY'
-export const REMOVE_COUNTRY = 'REMOVE_COUNTRY'
+//import { CountryState } from './country'
+//import { SearchState } from './search'
 
-type Languages = {
-  name: string
-}
-// A country
-export type Country = {
-  id: number;
-  flag: string;
-  name: string;
-  languages: Languages[];
-  population: number;
-  region: string;
-  nativeName: string;
-}
 
-export type AddCountryAction = {
-  type: typeof ADD_COUNTRY
-  payload: {
-    country: Country
-  }
-}
+export * from './country'
+//export * from './search'
 
-export type RemoveCountryAction = {
-  type: typeof REMOVE_COUNTRY
-  payload: {
-    country: Country
-  }
-}
 
-// Use this union in reducer
-export type CountryActions = AddCountryAction | RemoveCountryAction
-
-export type CountryState = {
-  inCart: Country[]
-}
-
-export type AppState = {
-  country: CountryState
-}

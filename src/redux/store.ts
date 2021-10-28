@@ -9,19 +9,19 @@ import rootSaga from './sagas'
 const initState: AppState = {
   country: {
     inCart: [],
-  },
+    allCountries:[],
+  }
 }
-
 export default function makeStore(initialState = initState) {
   const sagaMiddleware = createSagaMiddleware()
   const middlewares = [sagaMiddleware, thunk]
   let composeEnhancers = compose
 
-  /* if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     if ((window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
       composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     }
-  } */
+  }
 
   const store = createStore(
     createRootReducer(),

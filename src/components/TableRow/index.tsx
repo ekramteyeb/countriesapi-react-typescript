@@ -8,7 +8,8 @@ import { useTheme } from "../../context/Context";
 
 type TableRowProps ={
   country: Country, 
-  handleClick :  (input: React.BaseSyntheticEvent) => void, 
+  handleClick :  (input: React.BaseSyntheticEvent) => void,
+  disabled:boolean
  
 }
 function TableRow({
@@ -18,7 +19,7 @@ function TableRow({
     population,
     languages,
     region,
-  },handleClick
+  },handleClick,disabled
 }: TableRowProps) {
   const { theme } = useTheme()
 
@@ -33,7 +34,7 @@ function TableRow({
         ))}
       </td>
       <td>{region}</td>
-      <td ><ButtonComponent handleClick={handleClick}  text='add ' color={theme}/></td>
+      <td ><ButtonComponent handleClick={handleClick}  text='add ' disabled={disabled} color={theme}/></td>
 
     </tr>
   );
