@@ -11,7 +11,6 @@ import useDebounce from '../../hooks/useDebounce'
 import useFetchCountries from '../../hooks/useFetchCountries'
 import { useTheme } from '../../context/Context'
 import { AppState } from '../../types'
-
 import './styleHome.scss'
 
 export default function Home() {
@@ -45,32 +44,38 @@ export default function Home() {
   }
   return (
     <Container fluid>
-      <header className="header" style={backgroundStyle}>
-        <Navigation />
-        <div className="header__div">
-          <p>{data.length} Countries</p>
-        </div>
-        <SearchComponent
-          handleChange={handleChange}
-          placeholder="search by country name,region, or language"
-        />
-        <Cart
-          items={countriesInCart.length}
-          handleClick={() => <Link to="/countries/"></Link>}
-        />
-      </header>
-      <main className="main">
-        {error !== '' ? (
-          'there is error while fetchig data'
-        ) : (
-          <Table
-            sortColumn={sortColumn}
-            sortOrder={sortOrder}
-            handleSort={handleSort}
-            countries={data}
+      <div>
+        <header className="header" style={backgroundStyle}>
+          <Navigation />
+          <div className="header__div">
+            <p>{data.length} Countries</p>
+          </div>
+          <SearchComponent
+            handleChange={handleChange}
+            placeholder="search by country name,region, or language"
           />
-        )}
-      </main>
+          <Cart
+            items={countriesInCart.length}
+            handleClick={() => <Link to="/countries/"></Link>}
+          />
+        </header>
+      </div>
+      <div>
+
+      
+        <main className="main">
+          {error !== '' ? (
+            'there is error while fetchig data'
+          ) : (
+            <Table
+              sortColumn={sortColumn}
+              sortOrder={sortOrder}
+              handleSort={handleSort}
+              countries={data}
+            />
+          )}
+        </main>
+      </div>
     </Container>
   )
 }

@@ -19,22 +19,24 @@ function TableRow({
   const { theme } = useTheme()
 
   return (
-    <tr className="table-row">
+    <tr className="table__row">
       <td>
         <Flag url={flag} />
       </td>
       <td>{name}</td>
       <td>{population}</td>
       <td>
-        {languages.map((lan) => (
-          <li key={lan.name}>{lan.name}</li>
-        ))}
+        <ul>
+          {languages.map((lan) => (
+            <li key={lan.name}>{lan.name}</li>
+          ))}
+        </ul>
       </td>
       <td>{region}</td>
       <td>
         <ButtonComponent
           handleClick={handleClick}
-          text="add "
+          text="add"
           disabled={disabled}
           color={theme}
         />

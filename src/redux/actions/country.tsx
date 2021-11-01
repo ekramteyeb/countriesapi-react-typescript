@@ -6,7 +6,6 @@ import {
   ADD_ALL_COUNTRIES,
   CountryActions,
   Country,
-  /* AppState, */
 } from '../../types'
 
 export function addCountry(country: Country): CountryActions {

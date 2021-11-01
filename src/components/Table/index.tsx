@@ -13,7 +13,7 @@ type TableProps = {
   sortColumn: string
   handleSort: (elemnt: any) => void
 }
-//Colomn Sorting is implemented now
+//Colomn Sorting is implemented
 function TableData({
   countries,
   sortOrder,
@@ -30,7 +30,6 @@ function TableData({
         sortColumn={sortColumn}
         handleSort={handleSort}
       />
-
       <tbody>
         {countries.map((country: Country) => (
           <TableRow

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Country } from '../../types/country'
 
 import './index.scss'
+
 type CountryCardSingleTypes = {
   country: Country
   handleRemove: (input: React.BaseSyntheticEvent) => void

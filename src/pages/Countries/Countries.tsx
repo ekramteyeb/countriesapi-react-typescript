@@ -1,10 +1,10 @@
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import { CountryCard } from '../../components/CountryCard'
 import { removeCountry } from '../../redux/actions'
 import { Country } from '../../types'
-
 import './index.scss'
 
 type CountriesType = {

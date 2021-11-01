@@ -7,13 +7,17 @@ import createRootReducer from './reducers'
 import rootSaga from './sagas'
 
 // access state in localstorage
-let local: string | any = localStorage.getItem('inCartState')
-let inCartState = JSON.parse(local)
+//for cart items
+let localCart: string | any = localStorage.getItem('inCartState')
+let inCartState = JSON.parse(localCart)
+// for all countries
+let allCountriesLocalString : string | any = localStorage.getItem('allCountries')
+let allCountriesLocal = JSON.parse(allCountriesLocalString)
 
 const initialState: AppState = {
   country: {
     inCart: inCartState ? inCartState : [],
-    allCountries: [],
+    allCountries: allCountriesLocal ? allCountriesLocal :  [],
   },
 }
 

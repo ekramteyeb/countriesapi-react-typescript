@@ -15,7 +15,7 @@ export default function Country() {
     <>
       <CountryCardSingle
         country={country}
-        handleRemove={() => alert('comone')}
+        handleRemove={() => alert('')}
       />
     </>
   )

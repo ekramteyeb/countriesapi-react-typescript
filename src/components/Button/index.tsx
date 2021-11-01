@@ -16,7 +16,6 @@ export default function ButtonComponent({
 }: propsTypes) {
   const style = {
     backgroundColor: color,
-    width: '60%',
   }
   return (
     <>
