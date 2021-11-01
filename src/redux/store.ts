@@ -6,13 +6,18 @@ import { AppState } from '../types'
 import createRootReducer from './reducers'
 import rootSaga from './sagas'
 
-const initState: AppState = {
+// access state in localstorage
+let local: string | any = localStorage.getItem('inCartState')
+let inCartState = JSON.parse(local)
+
+const initialState: AppState = {
   country: {
-    inCart: [],
+    inCart: inCartState ? inCartState : [],
     allCountries: [],
   },
 }
-export default function makeStore(initialState = initState) {
+
+export default function makeStore(state = initialState) {
   const sagaMiddleware = createSagaMiddleware()
   const middlewares = [sagaMiddleware, thunk]
   let composeEnhancers = compose
@@ -25,7 +30,7 @@ export default function makeStore(initialState = initState) {
 
   const store = createStore(
     createRootReducer(),
-    initialState,
+    state,
     composeEnhancers(applyMiddleware(...middlewares))
   )
 

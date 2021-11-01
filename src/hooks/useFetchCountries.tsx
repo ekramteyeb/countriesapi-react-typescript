@@ -13,18 +13,18 @@ const useFetch = (
   sortColumn: string
 ): [Error | unknown, Country[]] => {
   //const [data, setData] = useState<Country[]>([])
-  const [error, setError] = useState<unknown>('') 
+  const [error, setError] = useState<unknown>('')
   const [filterdCountries, setFilterdCountries] = useState<Country[]>([])
-  const data = useSelector((state:AppState) => state.country.allCountries)
-  
+  const data = useSelector((state: AppState) => state.country.allCountries)
+
   const dispatch = useDispatch()
 
   const url = 'https://restcountries.com/v2/all'
-  
+
   useEffect(() => {
     dispatch(fetchCountries(url))
     setError('')
-  },[dispatch])
+  }, [dispatch])
 
   useEffect(() => {
     let filterdCountries = data.filter((country: Country) =>

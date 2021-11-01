@@ -12,18 +12,18 @@ export type Country = {
   flag: string
   name: string
   languages: Languages[]
+  capital:string
+  area:number
   population: number
   region: string
   nativeName: string
 }
-
 export type AddCountryAction = {
   type: typeof ADD_COUNTRY
   payload: {
     country: Country
   }
 }
-
 export type RemoveCountryAction = {
   type: typeof REMOVE_COUNTRY
   payload: {
@@ -36,7 +36,6 @@ export type AddAllCountriesAction = {
     countries: Country[]
   }
 }
-
 // Use this union in reducer
 export type CountryActions =
   | AddCountryAction

@@ -25,7 +25,9 @@ export default function Home() {
   //context
   const { theme } = useTheme()
 
-  localStorage.setItem('itemsIncart', JSON.stringify(countriesInCart))
+  //store state in local storage
+  const inCartState = useSelector((state: AppState) => state.country.inCart)
+  localStorage.setItem('inCartState', JSON.stringify(inCartState))
 
   const handleChange = useCallback((event: React.BaseSyntheticEvent) => {
     setSearch(event.target.value)
