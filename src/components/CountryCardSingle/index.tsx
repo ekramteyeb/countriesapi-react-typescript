@@ -23,7 +23,7 @@ export function CountryCardSingle({
   return (
     <div className="singleCountry__Card__div">
       <div>
-        <h1>Country page</h1>
+        <h1>{name}</h1>
       </div>
       <Card style={{ width: '39rem' }} className="singleCountry__Card">
         <Card.Img variant="top" src={flag} className="card__Image" />
