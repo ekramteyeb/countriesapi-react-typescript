@@ -61,8 +61,6 @@ export default function Home() {
         </header>
       </div>
       <div>
-
-      
         <main className="main">
           {error !== '' ? (
             'there is error while fetchig data'
