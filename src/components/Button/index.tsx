@@ -4,21 +4,22 @@ import { Button } from 'react-bootstrap'
 
 type propsTypes = {
   handleClick: (input: React.BaseSyntheticEvent) => void
-  text: string,
-  color:string
+  text: string
+  color: string
+  disabled: boolean
 }
 export default function ButtonComponent({
   handleClick,
   text,
-  color
+  color,
+  disabled,
 }: propsTypes) {
   const style = {
-    backgroundColor : color, 
-    width:'60%'
+    backgroundColor: color,
   }
   return (
     <>
-      <Button onClick={handleClick} style={style}>
+      <Button onClick={handleClick} style={style} disabled={disabled}>
         {text}
       </Button>
     </>

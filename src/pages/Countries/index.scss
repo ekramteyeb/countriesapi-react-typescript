@@ -1,0 +1,15 @@
+.cart__Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart__Countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cart_Top {
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+}

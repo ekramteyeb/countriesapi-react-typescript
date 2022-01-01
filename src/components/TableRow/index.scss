@@ -1,11 +1,14 @@
-.table-row{
+.table__row{
     display:flex;
     justify-content: center;
 }
-.table-row td{
+.table__row td{
    flex:1
    
 }
 .table__row__btn{
     padding:100px;
+}
+.table__row ul{
+    list-style-type: none;
 }

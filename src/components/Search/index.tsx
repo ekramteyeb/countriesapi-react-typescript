@@ -1,13 +1,13 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React from 'react'
+import { Form } from 'react-bootstrap'
 
-import "./search.scss";
+import './search.scss'
 
 type PropTypes = {
-  placeholder: string;
+  placeholder: string
   // possible to use (//React.BaseSyntheticEvent;)
-  handleChange: (input: React.ChangeEvent<HTMLInputElement>) => void;
-};
+  handleChange: (input: React.ChangeEvent<HTMLInputElement>) => void
+}
 const SearchComponent = ({ handleChange, placeholder }: PropTypes) => {
   //console.log("search component rendering");
   return (
@@ -19,6 +19,6 @@ const SearchComponent = ({ handleChange, placeholder }: PropTypes) => {
         placeholder={placeholder}
       />
     </div>
-  );
-};
-export default React.memo(SearchComponent);
+  )
+}
+export default React.memo(SearchComponent)
