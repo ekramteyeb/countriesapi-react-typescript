@@ -1,13 +1,9 @@
 import {
-  /* 
-  Form,
-  FormControl, */
   Button,
   Container,
   Offcanvas,
   Nav,
   Navbar,
-  /* NavDropdown, */
 } from 'react-bootstrap'
 import { Theme, useTheme } from '../../context/Context'
 
@@ -18,7 +14,6 @@ export default function Navigation() {
   return (
     <Navbar bg={theme} className="navbar" expand={false}>
       <Container fluid>
-        {/* <Navbar.Brand href="#">Switch themes</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="offcanvasNavbar" />
         <Navbar.Offcanvas
           id="offcanvasNavbar"

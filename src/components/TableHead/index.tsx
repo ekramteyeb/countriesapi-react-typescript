@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-import TableCell from "../TableCell";
-import "./index.scss";
+import TableCell from '../TableCell'
+import './index.scss'
 
 type TableHeadProps = {
-  handleSort: (input: React.BaseSyntheticEvent) => void;
-  sortOrder: boolean;
-  sortColumn: string;
-};
+  handleSort: (input: React.BaseSyntheticEvent) => void
+  sortOrder: boolean
+  sortColumn: string
+}
 function TableHead({ handleSort, sortOrder, sortColumn }: TableHeadProps) {
-  const tableHeaders = ["Flag", "Name", "Population", "Languages", "Region", ""];
+  const tableHeaders = ['Flag', 'Name', 'Population', 'Languages', 'Region', '']
   //console.log('table head is rendering')
   return (
     <thead>
@@ -25,10 +25,6 @@ function TableHead({ handleSort, sortOrder, sortColumn }: TableHeadProps) {
         ))}
       </tr>
     </thead>
-  );
+  )
 }
-export default React.memo(TableHead);
-/* <th key={head} onClick={handleSort}>
-  {head}
-</th>;
- */
+export default React.memo(TableHead)

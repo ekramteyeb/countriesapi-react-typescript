@@ -8,12 +8,9 @@ export enum Theme {
   // eslint-disable-next-line no-unused-vars
   Purple = '#e600ac',
   // eslint-disable-next-line no-unused-vars
-  Green = '#00b300'
-
-
-
+  Green = '#009900',
 }
-
+//type
 export type ThemeContextType = {
   theme: Theme
   setTheme: (Theme: Theme) => void
@@ -21,8 +18,8 @@ export type ThemeContextType = {
 
 export const ThemeContext = createContext<ThemeContextType>({
   theme: Theme.Purple,
-  setTheme: (theme) => console.warn('no theme provider'),
+  //setTheme: (theme) => console.warn('no theme provider'),
+  setTheme: (theme) => theme,
 })
+//hook using useCotext hook
 export const useTheme = () => useContext(ThemeContext)
-
-

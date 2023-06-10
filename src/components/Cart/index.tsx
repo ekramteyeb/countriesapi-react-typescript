@@ -1,4 +1,5 @@
 import { BiCart } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 
 import './style.scss'
 type Props = {
@@ -8,7 +9,9 @@ type Props = {
 export default function Cart({ items, handleClick }: Props) {
   return (
     <div className="cart__wrapper">
-      <BiCart onClick={handleClick} size="35" />
+      <Link to="/countries">
+        <BiCart onClick={handleClick} size="35" />
+      </Link>
       <span> {items} </span>
     </div>
   )
